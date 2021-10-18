@@ -115,20 +115,24 @@ def Login():
 
 	connection = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}')
 	
-	cursor = connection.cursor()
+	main_cursor = connection.cursor()
 
 	databases = []
 
-	cursor.execute("SHOW DATABASES")
+	main_cursor.execute("SHOW DATABASES")
 
-	for x in cursor:
+	for x in main_cursor:
 	  databases.append(x[0])
 
-	# print(databases)
 
 	if 'bms' in databases:
-		print("Connection Availabale!!")
+		bms_connect = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}', database='bms') 
+		print("Connection Made!!")
+	
 	else:
-		print("!!Connection need to be created!!")
+		main_cursor.execute("CREATE DATABASE bms")
+		print("Database Created!!")
+		bms_connect = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}', database='bms')
+		print("Connection Made!!")	
 
 Login()
