@@ -105,3 +105,30 @@
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------------------------#
+
+import mysql.connector
+from bullet import Password
+
+def Login():
+	userName = input("Enter user name: ")
+	password = Password(prompt='Enter Password: ', hidden='*').launch()
+
+	connection = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}')
+	
+	cursor = connection.cursor()
+
+	databases = []
+
+	cursor.execute("SHOW DATABASES")
+
+	for x in cursor:
+	  databases.append(x[0])
+
+	# print(databases)
+
+	if 'bms' in databases:
+		print("Connection Availabale!!")
+	else:
+		print("!!Connection need to be created!!")
+
+Login()
