@@ -2,8 +2,8 @@ import mysql.connector
 from bullet import Password
 
 def Login():
-	userName = input("Enter user name: ")
-	password = Password(prompt='Enter Password: ', hidden='*').launch()
+	userName = input("\n							⇢ user name: ")
+	password = Password(prompt='							⇢ Password: ', hidden='*').launch()
 
 	connection = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}')
 	
@@ -27,4 +27,4 @@ def Login():
 		bms_connect = mysql.connector.connect(host='localhost', user=f'{userName}', passwd=f'{password}', database='bms')
 		print("Connection Made!!")	
 
-Login()
+# Login()
