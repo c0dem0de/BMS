@@ -2,7 +2,9 @@ from bullet import Password
 from encrypter import encrypter
 import mysql.connector
 
-base = mysql.connector.connect(host='localhost', user='prj', passwd='server-load0-Data', database='bms')
+usr = input("Enter usrname: ")
+pwd = input("Enter pwd: ")
+base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 
 def Login():
@@ -18,13 +20,13 @@ def Login():
 
 			for i in pointr:
 				if i[2] == encrypted_Key:
-					print("\t\t\t\t\t\t\t⇢ Login Successfull!!!")
+					print("\t\t\t\t\t\t    Logged In ✔")
 					break
 				else:
-					print("\t\t\t\t\t\t\t⇢ !!!Incorrect Password!!!")
+					print("\t\t\t\t\t\t    !!!Incorrect Password!!!")
 					break
 		else:
-			print("!!!Incorrect Username!!!")
+			print("\t\t\t\t\t\t    !!!Incorrect Username!!!")
 			break
 
 

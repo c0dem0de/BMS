@@ -54,5 +54,5 @@ def encrypter(pwd):
 	return final_output
 
 
-
+# print(encrypter("admin"))
 # 1:26:11:28:5:30:3:32:8:33:15:34:0:38:22:41:2:43:16:44:6:45:17:52:18:61:20:66
