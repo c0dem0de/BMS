@@ -1,32 +1,41 @@
 from bullet import Password
 from encrypter import encrypter
 import mysql.connector
+from os import system as sys
 
-usr = input("Enter usrname: ")
-pwd = input("Enter pwd: ")
+# usr = input("Enter usrname: ")
+# pwd = input("Enter pwd: ")
+usr = "home"
+pwd = "Trio1-Pope-Overbill"
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
+sys('clear')
 
 def Login():
-	userName = input("\n\t\t\t\t\t\t\t⇢ user name: ")
+	userName = input("\n⇢ user name: ")
+	customers = []
 	pointr.execute("SELECT * FROM employees")
-
 	for i in pointr:
-		if i[1] == userName:
-	
-			password = Password(prompt='\t\t\t\t\t\t\t⇢ Password: ', hidden='*').launch()
-			encrypted_Key = encrypter(password)
-			pointr.execute("SELECT * FROM employees")
+		customers.append(i[1])
 
-			for i in pointr:
-				if i[2] == encrypted_Key:
-					print("\t\t\t\t\t\t\t    Logged In ✔")
-					break
-				else:
-					print("\t\t\t\t\t\t    !!!Incorrect Password!!!")
-					break
+	passwords = []
+	pointr.execute("SELECT * FROM employees")
+	for j in pointr:
+		passwords.append(j[2])
+	if userName in customers:
+		password = Password(prompt='⇢ Password: ', hidden='*').launch()
+		encrypted_Key = encrypter(password)
+		# pointr.execute("SELECT * FROM employees")
+
+		if encrypted_Key in passwords:
+			print("   Logged In ✔")
+			# break
 		else:
-			print("\t\t\t\t\t\t    !!!Incorrect Username!!!")
-			break
+			print("!!!Incorrect Password!!!")
+			# break
+	else:
+		print("!!!Incorrect Username!!!")
+		# break
 
 
+# Login()
