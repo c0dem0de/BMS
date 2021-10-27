@@ -1,7 +1,7 @@
 import mysql.connector
 
-usr = "home"
-pwd = "Trio1-Pope-Overbill"
+usr = ""
+pwd = ""
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 

@@ -5,8 +5,8 @@ from os import system as sys
 
 # usr = input("Enter usrname: ")
 # pwd = input("Enter pwd: ")
-usr = "home"
-pwd = "Trio1-Pope-Overbill"
+usr = ""
+pwd = ""
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 sys('clear')
