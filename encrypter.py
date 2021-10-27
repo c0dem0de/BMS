@@ -54,7 +54,7 @@ def encrypter(pwd):
 	return final_output
 
 
-# print(encrypter("admin"))
+# print(encrypter("1234"))
 
 
 
