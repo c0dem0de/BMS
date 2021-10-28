@@ -1,5 +1,6 @@
 from os import system as sys
 from login import Login 
+# from modulez import *
 
 
 # main_menue()
@@ -37,7 +38,10 @@ def main_menue():
 
 main_menue()
 
-# Customers:-
+# Employees:-
 	# John: admin
 	# Mark: mark01 
-	# Zak: 1234
+	# Zak: Secure12
+
+# Customers:
+	# Jon Mason: jonmas

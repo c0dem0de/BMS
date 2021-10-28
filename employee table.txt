@@ -3,5 +3,11 @@ emp_ID INT PRIMARY KEY,
 emp_NAME VARCHAR(30),
 emp_KEY VARCHAR(500)
 );
-
 INSERT INTO employees VALUES (101, "John", "eifieifiejfifbfifbfifgfifafiejfafifcfiejfb");	 
+
+
+create table MEMBERS(
+ID INT PRIMARY KEY,
+NAME VARCHAR(30),
+KEY VARCHAR(500)
+);

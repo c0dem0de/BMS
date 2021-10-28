@@ -15,6 +15,8 @@ def encrypter(pwd):
 
 	encrypted = ""
 
+	# find index of a single letter of the pwd in chars,
+	# put in in the list and the sort the list. 
 	for i in pwd:
 		key.append(chars.index(i))
 		key_sort.append(chars.index(i))
@@ -22,6 +24,8 @@ def encrypter(pwd):
 	for i in range(len(pwd)):
 		indexes[i] = key[i]
 
+	# sort on basis of values rather than keys in the dict "indexes",
+	# and then store it to "indexes_sorted".
 	def indexes_sorts():
 		for i in sorted(indexes.values()):
 		    for k in indexes.keys():
@@ -36,16 +40,19 @@ def encrypter(pwd):
 	for i in range(len(indexes_sorted)):
 		encrypted += f"{ind_keys[i]}:{ind_vals[i]}:"
 
-	# print(encrypted)
+	# just to remove the last colon in the "encrypted"
+	# ex, if "encrypted" = "0:0:", then this makes it "0:0".
 	encrypted_output = f"{encrypted[:-1]}"
+	# print(encrypted_output)
 
 	last_output = ""
 	final_output = ""
 
+	# replace every char in the "encrypted_output" by its ascii value
 	for i in encrypted_output:
 		last_output += str(ord(i))
 
-
+	# replace every char in the "last_output" by chars value on that index
 	for i in last_output:
 		final_output += chars[int(i)]
 
@@ -54,7 +61,23 @@ def encrypter(pwd):
 	return final_output
 
 
-# print(encrypter("1234"))
+def decrypter(key):
+	last_output = ""
+	for i in key:
+		last_output += str(chars.index(i))
+	return last_output
+
+
+
+# print(encrypter("zak.log(print)"))
+print(decrypter("ejfieififefifefiejeififgfifafiejeififcfiejejfiejejfiejfbfifdfiejfcfifgfiejfdfifhfiejfffiejfafiejfhfieififafdfifffifffcfiejfbfifffdfifbfifgfd"))
+
+# print(chr(485848))
+# print(ord("j"))
+
+
+
+
 
 
 
