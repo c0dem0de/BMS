@@ -4,6 +4,7 @@ from login import Login
 # main_menue()
 def main_menue():
 	while True:
+		sys('clear')
 		print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 		print("\n\
 		╔‑‑‑‑‑‑‑‑‑‑‑‑‑‑--‑╗\n\
