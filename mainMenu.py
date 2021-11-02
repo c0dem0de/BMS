@@ -1,7 +1,5 @@
 from os import system as sys
-from login import Login 
-# from modulez import *
-
+from login import Login
 
 # main_menue()
 def main_menue():

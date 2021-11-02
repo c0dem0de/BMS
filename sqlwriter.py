@@ -1,9 +1,8 @@
-# from modulez import *
 import mysql.connector
 from encrypter import encrypter
 
-usr = ""
-pwd = ""
+usr = "home"
+pwd = "Trio1-Pope-Overbill"
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 
