@@ -43,7 +43,7 @@ def deposit():
 		sys('clear')
 		deposit()
 	inp = input("Are you sure(y/n): ")
-	if inp == 'y' or inp == "Y":
+	if inp.lower() == 'y':
 		pointr.execute("SELECT BALANCE FROM members WHERE ID=%s",(mem_id,))
 		data = list(pointr)
 		pointr.execute("SELECT max(ID) FROM transactions")
@@ -56,7 +56,7 @@ def deposit():
 		dep += int(data[0][0])
 		pointr.execute("UPDATE members SET BALANCE = %s WHERE ID=%s",(dep,mem_id))
 		base.commit()
-	elif inp == 'n' or 'N':
+	elif inp.lower() == 'n':
 		pass
 	else:
 		print("Enter a valid choice(y/n)")

@@ -32,7 +32,7 @@ def create_account():
 		initial_depo = int(input("Enter the initial deposit amount: "))
 	except ValueError:
 		print("Enter a valid initial amount")
-		print("Press enter to continue ...")
+		input("Press enter to continue ...")
 		sys('clear')
 		create_account()
 	gen_pass =name[0] + name[-1] + str(random.randrange(112,999))

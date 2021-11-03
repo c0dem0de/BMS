@@ -6,10 +6,8 @@ import members_menu
 import DB_check
 
 
-# usr = input("Enter usrname: ")
-# pwd = Password(prompt='Enter pwd: ', hidden='*').launch()
-usr = "home"
-pwd = "Trio1-Pope-Overbill"
+usr = input("Enter usrname: ")
+pwd = Password(prompt='Enter pwd: ', hidden='*').launch()
 DB_check.main(usr, pwd)
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
