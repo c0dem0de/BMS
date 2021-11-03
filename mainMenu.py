@@ -12,9 +12,9 @@ def main_menue():
 		┇   ○ Exit        ┇\n\
 		╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-╝")
 
-		choose = int(input("\nChoose an option[1/2]: "))
+		choose = input("\nChoose an option[1/2]: ")
 
-		if choose == 1:
+		if choose == '1':
 			sys('clear')
 			print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 			print("\n\
@@ -24,7 +24,7 @@ def main_menue():
 		╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-╝")
 			Login()
 
-		elif choose == 2:
+		elif choose == '2':
 			sys('clear')
 			print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 			print("\n\
@@ -37,6 +37,9 @@ def main_menue():
 			sys('clear')
 			break
 
+		else:
+			print("PLease enter correct choice[1/2]")
+			input("Press enter to exit")
 
 main_menue()
 

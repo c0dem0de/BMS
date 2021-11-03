@@ -1,15 +1,16 @@
 from bullet import Password
-# from encrypter import encrypter
 import mysql.connector
 from os import system as sys
 import employee_menu
-# from modulez import *
+import members_menu
+import DB_check
 
 
 usr = input("Enter usrname: ")
 pwd = Password(prompt='Enter pwd: ', hidden='*').launch()
 # usr = "home"
 # pwd = "Trio1-Pope-Overbill"
+DB_check.main()
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 sys('clear')
@@ -43,9 +44,8 @@ def Login():
 	# check credentials
 	if userName in employees:
 		password = Password(prompt='\t ⇢ Password: ', hidden='*').launch()
-		encrypted_Key = password
 
-		if encrypted_Key in passwords:
+		if password in passwords:
 			print("\t    Logged In ✔")
 			print("\t  Hello Employee")
 			input("Press Enter to continue")
@@ -54,22 +54,27 @@ def Login():
 
 		else:
 			print("      !!Incorrect Password!!")
+			input("Press enter to continue ...")
 
 	elif userName in members:
 		password = Password(prompt='\t ⇢ Password: ', hidden='*').launch()
-		encrypted_Key = password
 
-		if encrypted_Key in mem_passwords:
+		if password in mem_passwords:
 			print("\t    Logged In ✔")
 			print("\t  Hello Member")
+			input("Press Enter to continue")
+			sys('clear')
+			members_menu.main(base,pointr,userName)
 
 
 		else:
 			print("      !!Incorrect Password!!")
+			input("Press enter to continue ...")
 
 	else:
 
 		print("      !!Incorrect Username!!")
+		input("Press enter to continue ...")
 
 
 # Login()

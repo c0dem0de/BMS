@@ -11,7 +11,7 @@ def menu():
 	┇   ○ Remove Account     ┇\n\
 	┇   ○ Log Out            ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-‑‑‑‑‑‑‑╝")
-	inp = int(input("\nChoose an option[1-6]: "))
+	inp = input("\nChoose an option[1-6]: ")
 	return inp
 
 def create_account():
@@ -28,7 +28,13 @@ def create_account():
 	acc_type = input("Enter Account Type(C/S): ")
 	address = input("Enter Account Holder\'s Address: ")
 	ph_no = input("Enter Account Holder\'s Phoneno: ")
-	initial_depo = int(input("Enter the initial deposit amount: "))
+	try:
+		initial_depo = int(input("Enter the initial deposit amount: "))
+	except ValueError:
+		print("Enter a valid initial amount")
+		print("Press enter to continue ...")
+		sys('clear')
+		create_account()
 	gen_pass =name[0] + name[-1] + str(random.randrange(112,999))
 	pointr.execute("SELECT max(ID) FROM members")
 	for i in pointr:
@@ -55,7 +61,13 @@ def retrieve_account():
 	┇   ○ Remove Account     ┇\n\
 	┇   ○ Log Out            ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-‑‑‑‑‑‑‑╝")
-	acc_no = int(input("Enter the account no: "))
+	try:
+		acc_no = int(input("Enter the account no: "))
+	except ValueError:
+		print("Enter a valid account no")
+		input("Press enter to continue ...")
+		sys('clear')
+		retrieve_account()
 	pointr.execute("SELECT * FROM members WHERE ID=%s",(acc_no,))
 	data = list(pointr)
 	sys('clear')
@@ -116,7 +128,13 @@ def remove_account():
 	┇   ◉ Remove Account     ┇\n\
 	┇   ○ Log Out            ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-‑‑‑‑‑‑‑╝")
-	acc_no = int(input("Enter the account no: "))
+	try:
+		acc_no = int(input("Enter the account no: "))
+	except ValueError:
+		print("Enter a valid account no")
+		input("Press enter to continue ...")
+		sys('clear')
+		remove_account()
 	pointr.execute("DELETE FROM members WHERE ID=%s",(acc_no,))
 	base.commit()
 
@@ -129,17 +147,17 @@ def main(base_arg,pointr_arg):
 		sys('clear')
 		inp = menu()
 		sys('clear')
-		if inp == 1:
+		if inp == '1':
 			create_account()
-		elif inp == 2:
+		elif inp == '2':
 			retrieve_account()
-		elif inp == 3:
+		elif inp == '3':
 			transactions()
-		elif inp == 4:
+		elif inp == '4':
 			account_holder()
-		elif inp == 5:
+		elif inp == '5':
 			remove_account()
-		elif inp == 6:
+		elif inp == '6':
 			break
 		else:
 			print("Print a valid choice between 1-6")
