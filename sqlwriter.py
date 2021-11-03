@@ -1,5 +1,5 @@
 import mysql.connector
-from encrypter import encrypter
+# from encrypter import encrypter
 
 usr = "home"
 pwd = "Trio1-Pope-Overbill"
@@ -22,7 +22,7 @@ def DATA_INSERT():
 	ID = int(input("Enter ID: "))
 	NAME = input("Enter NAME: ")
 	PWD = input("Enter PWD: ")
-	PWD = encrypter(PWD)
+	# PWD = encrypter(PWD)
 	if table == 1:
 		sql = "INSERT INTO employees (emp_ID, emp_NAME, emp_KEY) VALUES (%s, %s, %s)"
 		val = (ID, f"{NAME}", f"{PWD}")	

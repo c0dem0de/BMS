@@ -39,7 +39,11 @@ def create_account():
 	pointr.execute("SELECT max(ID) FROM members")
 	for i in pointr:
 		last_id = i
-	data = (int(last_id[0])+1,name,gen_pass,acc_type,address,ph_no,initial_depo)
+	try:
+		data = (int(last_id[0])+1,name,gen_pass,acc_type,address,ph_no,initial_depo)
+	except TypeError:
+		data = (1,name,gen_pass,acc_type,address,ph_no,initial_depo)
+
 	# ID,NAME,PASS,TYPE,ADDRESS,PHONE_NO,BALANCE
 	pointr.execute("INSERT INTO members VALUES (%s,%s,%s,%s,%s,%s,%s)",data)
 	base.commit()

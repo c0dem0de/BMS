@@ -70,7 +70,7 @@ def decrypter(key):
 
 
 # print(encrypter("zak.log(print)"))
-print(decrypter("ejfieififefifefiejeififgfifafiejeififcfiejejfiejejfiejfbfifdfiejfcfifgfiejfdfifhfiejfffiejfafiejfhfieififafdfifffifffcfiejfbfifffdfifbfifgfd"))
+# print(decrypter("ejfieififefifefiejeififgfifafiejeififcfiejejfiejejfiejfbfifdfiejfcfifgfiejfdfifhfiejfffiejfafiejfhfieififafdfifffifffcfiejfbfifffdfifbfifgfd"))
 
 # print(chr(485848))
 # print(ord("j"))

@@ -1,3 +1,6 @@
+import mysql.connector
+
+
 def main(usr,pwd):
 	base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}')
 	pointr = base.cursor()

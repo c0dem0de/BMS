@@ -49,7 +49,10 @@ def deposit():
 		pointr.execute("SELECT max(ID) FROM transactions")
 		for i in pointr:
 			last_id = i
-		pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(int(last_id[0])+1,"D",dep,mem_id))
+		try:	
+			pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(int(last_id[0])+1,"D",dep,mem_id))
+		except TypeError:
+			pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(1,"D",dep,mem_id))
 		dep += int(data[0][0])
 		pointr.execute("UPDATE members SET BALANCE = %s WHERE ID=%s",(dep,mem_id))
 		base.commit()
@@ -86,7 +89,10 @@ def withdraw():
 			pointr.execute("SELECT max(ID) FROM transactions")
 			for i in pointr:
 				last_id = i
-			pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(int(last_id[0])+1,"W",wit,mem_id))
+			try:
+				pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(int(last_id[0])+1,"W",wit,mem_id))
+			except TypeError:
+				pointr.execute("INSERT INTO transactions VALUES(%s,%s,%s,%s)",(1,"D",dep,mem_id))
 			wit = int(data[0][0]) - wit
 			pointr.execute("UPDATE members SET BALANCE = %s WHERE ID=%s",(wit,mem_id))
 			base.commit()
