@@ -1,18 +1,24 @@
+# installed modules imported
+from os import system as sys
 from bullet import Password
 import mysql.connector
-from os import system as sys
+
+# local files imported
 import employee_menu
 import members_menu
 import DB_check
 
+usr= 'home'
+pwd= 'Trio1-Pope-Overbill'
 
-usr = input("Enter usrname: ")
-pwd = Password(prompt='Enter pwd: ', hidden='*').launch()
+# usr = input("Enter usrname: ")
+# pwd = Password(prompt='Enter pwd: ', hidden='*').launch()
 DB_check.main(usr, pwd)
 base = mysql.connector.connect(host='localhost', user=f'{usr}', passwd=f'{pwd}', database='bms')
 pointr = base.cursor()
 sys('clear')
 
+#----------Login to member/employee acc----------
 def Login():
 	userName = input("\n\t ⇢ user name: ")
 
@@ -39,14 +45,14 @@ def Login():
 		mem_passwords.append(j[2])
 	
 
-	# check credentials
+	# PWD VALIDITY CHECK
 	if userName in employees:
 		password = Password(prompt='\t ⇢ Password: ', hidden='*').launch()
 
 		if password in passwords:
 			print("\t    Logged In ✔")
 			print("\t  Hello Employee")
-			input("Press Enter to continue")
+			input("\nPress Enter to continue")
 			sys('clear')
 			employee_menu.main(base,pointr)
 
@@ -60,7 +66,7 @@ def Login():
 		if password in mem_passwords:
 			print("\t    Logged In ✔")
 			print("\t  Hello Member")
-			input("Press Enter to continue")
+			input("\nPress Enter to continue")
 			sys('clear')
 			members_menu.main(base,pointr,userName)
 
@@ -74,5 +80,3 @@ def Login():
 		print("      !!Incorrect Username!!")
 		input("Press enter to continue ...")
 
-
-# Login()

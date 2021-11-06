@@ -1,15 +1,18 @@
+# installed modules imported
 from os import system as sys
+
+# local files imported
 from login import Login
 
-# main_menue()
-def main_menue():
+
+def main_menu():
 	while True:
 		sys('clear')
 		print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 		print("\n\
 	╔‑‑‑‑‑‑‑‑‑‑‑‑‑‑--‑╗\n\
-	┇   ○ Login       ┇\n\
-	┇   ○ Exit        ┇\n\
+	┇     ○ Login     ┇\n\
+	┇     ○ Exit      ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-╝")
 
 		choose = input("\nChoose an option[1/2]: ")
@@ -19,8 +22,8 @@ def main_menue():
 			print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 			print("\n\
 	╔‑‑‑‑‑‑‑‑‑‑‑‑‑‑--‑╗\n\
-	┇   ◉ Login       ┇\n\
-	┇   ○ Exit        ┇\n\
+	┇     ◉ Login     ┇\n\
+	┇     ○ Exit      ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-╝")
 			Login()
 
@@ -29,8 +32,8 @@ def main_menue():
 			print("    𝔹𝔸ℕ𝕂 𝕄𝔸ℕ𝔸𝔾𝔼𝕄𝔼ℕ𝕋 𝕊𝕐𝕊𝕋𝔼𝕄")
 			print("\n\
 	╔‑‑‑‑‑‑‑‑‑‑‑‑‑‑--‑╗\n\
-	┇   ○ Login       ┇\n\
-	┇   ◉ Exit        ┇\n\
+	┇     ○ Login     ┇\n\
+	┇     ◉ Exit      ┇\n\
 	╚‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑-╝")
 			print("\n   	     ThankYou")
 			input("Press enter to exit")
@@ -41,12 +44,8 @@ def main_menue():
 			print("PLease enter correct choice[1/2]")
 			input("Press enter to exit")
 
-main_menue()
+main_menu()
 
-# Employees:-
-	# John: admin
-	# Mark: mark01 
-	# Zak: Secure12
-
-# Customers:
-	# Jon Mason: jonmas
+# EMPLOYEES:
+	# username :John 
+	# password : pwd
